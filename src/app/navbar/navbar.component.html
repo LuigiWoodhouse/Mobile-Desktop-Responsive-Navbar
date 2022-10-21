@@ -1,0 +1,92 @@
+<!--   
+ng add @angular/material
+-You will then be asked to select angular theme. I chose Indigo/Pink. You can choose either
+or the same. (does not matter which you choose)
+
+-Angular Material Typography?Yes (does not matter which you choose)
+-Select Include and enable animations(This is important)
+
+npm install bootstrap
+Put this in styles.scss @import 'bootstrap/scss/bootstrap';
+npm install @angular/flex-layout --save
+
+MUST HAVE
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppRoutingModule } from './app-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+Place in index.html file <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+-->
+
+
+
+<!--
+    https://luigiwoodhouse.com/
+    https://github.com/LuigiWoodhouse
+    https://www.linkedin.com/in/luigi-woodhouse-0012bb152/
+    https://www.instagram.com/codeitfrun/
+-->
+
+<!--follow-scroller-mobile allows the navbar to follow the user while scrolling in mobile view-->
+<div class="follow-scroller-mobile">
+
+    <!--Sets width of the navbar in mobile view-->
+    <mat-toolbar class="mobile-view-nav-bar-width">
+
+        <!--Hamburger or menu icon is aligned to the right. Remove class to default to the left-->
+        <div class="align-menu-icon-right">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon style="color :#fff">menu</mat-icon>
+            </button>
+        </div>
+
+    </mat-toolbar>
+</div>
+
+<!--follow-scroller-desktop allows the navbar to follow the user while scrolling in desktop view-->
+<!--fxLayoutAlign ="end" - This aligns nav items to the right. Change to start to align to the left-->
+<!--fxLayoutGap sets the spacing between nav items-->
+<!--fxHide.lt-md = "true" hides the nav items when navbar is in mobile view-->
+<mat-toolbar class="follow-scroller-desktop" fxLayoutAlign="end" fxLayoutGap="15px" fxHide.lt-md="true">
+
+    <!-- DESKTOP VIEW-->
+    <nav>
+        <ul>
+            <li><a class="btn btn-primary" href="#">Home</a></li>
+            <li><a class="btn btn-primary" href="#">Test 1</a></li>
+            <li><a class="btn btn-primary" href="#">Test 2</a></li>
+        </ul>
+    </nav>
+    
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+    <!-- MOBILE VIEW -->
+
+    <!--follow-scroller-mobile right here allows the sidenav to follow the user as they scroll-->
+    <!-- #sidenav is needed to open the sidenav-->
+    <mat-sidenav class="follow-scroller-mobile" #sidenav fxLayoutAlign="end">
+        <br><br><br><br><br>
+        <nav>
+            <ul>
+                <!-- <button mat-raised-button color="primary">Primary</button> -->
+                <li><a class="btn btn-primary" href="#">Home</a></li>
+                <li><a class="btn btn-primary" href="#">Test 1</a></li>
+                <li><a class="btn btn-primary" href="#">Test 2</a></li>
+            </ul>
+        </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content >
+
+        <!--This is where the content of your page goes-->
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
